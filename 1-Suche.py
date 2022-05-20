@@ -1,11 +1,10 @@
 # -*- coding: utf-8 -*-
 from multiprocessing import Pool
-import winsound
 import requests
 import os
 from bs4 import BeautifulSoup
 
-directory = "1-Suche/"
+directory = "1-Suchess/"
 if not os.path.exists(directory):
     os.makedirs(directory)
 
@@ -79,6 +78,26 @@ def load_zipcode(zipcode):
             "javax.faces.ViewState": ""
         }
 
+        payload2 = {
+            "javax.faces.partial.ajax": "true",
+            "javax.faces.source": "listForm:tabs:table",
+            "javax.faces.partial.execute": "listForm:tabs:table",
+            "javax.faces.partial.render": "listForm:tabs:table",
+            "listForm:tabs:table": "listForm:tabs:table",
+            "listForm:tabs:table_pagination": "true",
+            "listForm:tabs:table_first": "0",
+            "listForm:tabs:table_rows": "100",
+            "listForm:tabs:table_encodeFeature": "false",
+            "listForm": "listForm",
+            "listForm:tabs_activeIndex": "1",
+            "javax.faces.ViewState": ""
+        }
+        payload3 = {
+	        "listForm": "listForm",
+	        "listForm:tabs:table:0:showDetail": "",
+	        "listForm:tabs_activeIndex": "",
+	        "javax.faces.ViewState": ""
+        }
         s = requests.Session()
         url0 = "https://asu.kvs-sachsen.de/arztsuche/"
         r0 = s.get(url0)
@@ -88,18 +107,27 @@ def load_zipcode(zipcode):
         payload["javax.faces.ViewState"] = inp["value"]
         url = "https://asu.kvs-sachsen.de/arztsuche/pages/search.jsf"
         r = s.post(url, data=payload)
-        if (r.status_code == 200):
-            with open(directory + filename, 'w+') as f:
-                #print(r.text)
-                f.write(r.text)
-        else:
-            print("  failed  " + str(r.status_code))
+        url1 = "https://asu.kvs-sachsen.de/arztsuche/pages/list.jsf"
+        payload2["javax.faces.ViewState"] = inp["value"]
+        r = s.post(url, data = payload2)
+        payload3["javax.faces.ViewState"] = inp["value"]
+        for i in range(0,10):
+            payload3["listForm:tabs_activeIndex"] = str(i)
+            r = s.post(url, data = payload3)
+            r = s.get("https://asu.kvs-sachsen.de/arztsuche/pages/detail.jsf")
+            filename = filename.replace(".html", "_" + str(i) +".html")
+            if (r.status_code == 200):
+                with open(directory + filename, 'w+') as f:
+                    #print(r.text)
+                    f.write(r.text)
+            else:
+                print("  failed  " + str(r.status_code))
 
 
 
 if __name__ == '__main__':
     with open("PLZ_DE.csv", "r") as f:
-        zipcodes = [line.replace("\n", "").split(";")[0] for line in f.readlines()[1:]]
+        #zipcodes = [line.replace("\n", "").split(";")[0] for line in f.readlines()[1:]]
+        zipcodes = ["1129"]
     with Pool() as p:
         p.map(load_zipcode, zipcodes)
-    winsound.Beep(440, 1000)
