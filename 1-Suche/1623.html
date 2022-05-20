@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link type="text/css" rel="stylesheet" href="/arztsuche/javax.faces.resource/theme.css.jsf?ln=primefaces-kvs" /><link type="text/css" rel="stylesheet" href="/arztsuche/javax.faces.resource/primefaces.css.jsf?ln=primefaces&amp;v=5.3" /><script type="text/javascript" src="/arztsuche/javax.faces.resource/jquery/jquery.js.jsf?ln=primefaces&amp;v=5.3"></script><script type="text/javascript" src="/arztsuche/javax.faces.resource/jquery/jquery-plugins.js.jsf?ln=primefaces&amp;v=5.3"></script><script type="text/javascript" src="/arztsuche/javax.faces.resource/primefaces.js.jsf?ln=primefaces&amp;v=5.3"></script><script type="text/javascript" src="/arztsuche/javax.faces.resource/primefaces-extensions.js.jsf?ln=primefaces-extensions-uncompressed&amp;v=2.1.0"></script><link type="text/css" rel="stylesheet" href="/arztsuche/javax.faces.resource/kvs.template.css.jsf?ln=css" /><link type="text/css" rel="stylesheet" href="/arztsuche/javax.faces.resource/asu.css.jsf?ln=styles&amp;v=5_31" /><link type="text/css" rel="stylesheet" href="/arztsuche/javax.faces.resource/asu.extern.css.jsf?ln=styles&amp;v=5_31" /><link type="text/css" rel="stylesheet" href="/arztsuche/javax.faces.resource/kvs.component.css.jsf?ln=css" /><link type="text/css" rel="stylesheet" href="/arztsuche/javax.faces.resource/asu.list.css.jsf?ln=styles&amp;v=5_31" /><link type="text/css" rel="stylesheet" href="/arztsuche/javax.faces.resource/asu.component.css.jsf?ln=styles&amp;v=5_31" /><link type="text/css" rel="stylesheet" href="/arztsuche/javax.faces.resource/asu.list.map.css.jsf?ln=styles&amp;v=5_31" /><link type="text/css" rel="stylesheet" href="/arztsuche/javax.faces.resource/leaflet.css.jsf?ln=css" /><link type="text/css" rel="stylesheet" href="/arztsuche/javax.faces.resource/markercluster.css.jsf?ln=css" /><link type="text/css" rel="stylesheet" href="/arztsuche/javax.faces.resource/kvs.osm.css.jsf?ln=css" /><script type="text/javascript">if(window.PrimeFaces){PrimeFaces.settings.projectStage='Development';}</script>
+    <title>KVS - Arztsuche</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF8" />
+    <link rel="icon" type="image/x-icon" href="/arztsuche/javax.faces.resource/icons/favicon.ico.jsf" />
+    <link rel="shortcut icon" type="image/x-icon" href="/arztsuche/javax.faces.resource/icons/favicon.ico.jsf" /></head><body><table class="fill-out">
+<tbody>
+<tr>
+<td class="border">
+        <div></div></td>
+<td class="frame"><table class="fill-out">
+<tbody>
+<tr class="page-top">
+<td><img id="j_idt14" alt="" src="/arztsuche/javax.faces.resource/spacer/dot_clear.gif.jsf?ln=primefaces&amp;v=5.3" /></td>
+</tr>
+<tr class="logo">
+<td><img id="j_idt16" alt="" src="/arztsuche/javax.faces.resource/spacer/dot_clear.gif.jsf?ln=primefaces&amp;v=5.3" class="width" /><a href="http://www.kvs-sachsen.de/"><table class="fill-out">
+<tbody>
+<tr>
+<td><div class="app-name">Arztsuche</div></td>
+</tr>
+</tbody>
+</table>
+</a>
+            <!-- default for non-public --></td>
+</tr>
+<tr class="frame-line">
+<td><table id="frameLine" class="fill-out">
+<tbody>
+<tr>
+<td class="header-subtitle">Suche nach Ärzten und Psychotherapeuten in Sachsen</td>
+<td class="header-log"><div class="login-panel"></div></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="frame-content">
+<td><table class="fill-out">
+<tbody>
+<tr>
+<td class="sidebar-column"></td>
+<td class="content-column"><span id="asu-content-container">
+                    <div class="asu-template"><div id="asu_messages" class="ui-messages ui-widget" aria-live="polite"></div>
+                    </div>
+                    <div class="asu-template">
+<form id="listForm" name="listForm" method="post" action="/arztsuche/pages/list.jsf" enctype="application/x-www-form-urlencoded">
+<input type="hidden" name="listForm" value="listForm" />
+<table class="fill-out">
+<tbody>
+<tr>
+<td><table class="top-level">
+<tbody>
+<tr>
+<td><span class="bold">Ihre Suchanfrage liefert 5 Einträge.</span></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td><table class="button-panel" cellpadding="0" cellspacing="0">
+<tbody>
+<tr>
+<td class="left"></td>
+<td class="right"><button id="listForm:backPanel:btn-navigateSearchChange" name="listForm:backPanel:btn-navigateSearchChange" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" onclick="" type="submit"><span class="ui-button-text ui-c">Suche verändern</span></button><script id="listForm:backPanel:btn-navigateSearchChange_s" type="text/javascript">PrimeFaces.cw("CommandButton","widget_listForm_backPanel_btn_navigateSearchChange",{id:"listForm:backPanel:btn-navigateSearchChange"});</script><img id="listForm:backPanel:j_idt60" alt="" src="/arztsuche/javax.faces.resource/spacer/dot_clear.gif.jsf?ln=primefaces&amp;v=5.3" class="button-spacer" /><button id="listForm:backPanel:btn-navigateSearchNew" name="listForm:backPanel:btn-navigateSearchNew" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" onclick="" type="submit"><span class="ui-button-text ui-c">neue Suche</span></button><script id="listForm:backPanel:btn-navigateSearchNew_s" type="text/javascript">PrimeFaces.cw("CommandButton","widget_listForm_backPanel_btn_navigateSearchNew",{id:"listForm:backPanel:btn-navigateSearchNew"});</script></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<div id="listForm:tabs" class="ui-tabs ui-widget ui-widget-content ui-corner-all ui-hidden-container ui-tabs-top public-result-tab" data-widget="widget_listForm_tabs"><ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all" role="tablist"><li class="ui-state-default ui-tabs-selected ui-state-active ui-corner-top" role="tab" aria-expanded="true" aria-selected="true"><a href="#listForm:tabs:t-map" tabindex="-1">Karte</a></li><li class="ui-state-default ui-corner-top" role="tab" aria-expanded="false" aria-selected="false"><a href="#listForm:tabs:t-list" tabindex="-1">Liste</a></li></ul><div class="ui-tabs-panels"><div id="listForm:tabs:t-map" class="ui-tabs-panel ui-widget-content ui-corner-bottom" role="tabpanel" aria-hidden="false"><script type="text/javascript" src="/arztsuche/javax.faces.resource/leaflet.js.jsf?ln=js"></script><script type="text/javascript" src="/arztsuche/javax.faces.resource/markercluster.js.jsf?ln=js"></script><script type="text/javascript" src="/arztsuche/javax.faces.resource/kvs.osm.js.jsf?ln=js"></script>
+
+    <div id="osm" style="width:100%; height:624px"></div><script type="text/javascript" id="listForm:tabs:osm:rc-notifyMarkerListener">notifyMarkerListener = function(markerRefKey) {PrimeFaces.ab({s:"listForm:tabs:osm:rc-notifyMarkerListener",f:"listForm",p:"listForm:tabs:osm:rc-notifyMarkerListener",u:"listForm:tabs:mapInfoWindow:wrapper",onco:function(xhr,status,args){copyInfoWindowContent('listForm:tabs:mapInfoWindow:wrapper', 250);},params:[{name:'listForm:tabs:osm:rc-notifyMarkerListener_markerRefKey',value:markerRefKey}]});}</script>
+
+    <script type="text/javascript">
+
+        var map_osm = L.map('osm', {center: [51.197172,13.308621], dragging: true, zoomControl: true , zoom: 15});
+
+        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {id: 'osm', attribution: 'KVS - Arztsuche', maxZoom: 19, minZoom: 7}).addTo(map_osm);
+
+        if(false)
+            var layers = L.control.layers();
+
+        if(!true)
+        {
+            map_osm.touchZoom.disable();
+            map_osm.doubleClickZoom.disable();
+            map_osm.scrollWheelZoom.disable();
+            map_osm.boxZoom.disable();
+            map_osm.keyboard.disable();
+        }
+
+        // Markers layer
+        
+        var layer = false?new L.MarkerClusterGroup({ disableClusteringAtZoom: 19, maxClusterRadius: 80}):new L.LayerGroup();
+
+        if(false)
+            layers.addOverlay(layer,"");
+
+        //Markers
+        
+
+            var icon = new L.Icon({iconSize: [32, 32], iconAnchor: [16, 32], shadowSize: [41, 41], shadowAnchor: [12, 41], popupAnchor: [0, -35], iconUrl: '/arztsuche/javax.faces.resource/red-default-32.png.jsf?ln=images', shadowUrl: '/arztsuche/javax.faces.resource/shadow-pin.png.jsf?ln=images'});
+            var marker = L.marker([51.197218, 13.308734],{icon: icon});
+
+            marker.bindPopup('<div id="osm-marker-popup"></div>');
+            if('2 Suchergebisse') {
+                marker.bindTooltip('2 Suchergebisse',{className:'kvs', opacity:0.7}).openTooltip();
+            }
+
+            marker.on('click', markerOnClickMaRef0);
+
+            function markerOnClickMaRef0(e) {
+                map_osm.panTo(e.target.getLatLng());
+                notifyMarkerListener('MaRef0');
+            }
+
+            marker.addTo(layer);
+        
+
+            var icon = new L.Icon({iconSize: [32, 32], iconAnchor: [16, 32], shadowSize: [41, 41], shadowAnchor: [12, 41], popupAnchor: [0, -35], iconUrl: '/arztsuche/javax.faces.resource/red-default-32.png.jsf?ln=images', shadowUrl: '/arztsuche/javax.faces.resource/shadow-pin.png.jsf?ln=images'});
+            var marker = L.marker([51.197125, 13.308508],{icon: icon});
+
+            marker.bindPopup('<div id="osm-marker-popup"></div>');
+            if('3 Suchergebisse') {
+                marker.bindTooltip('3 Suchergebisse',{className:'kvs', opacity:0.7}).openTooltip();
+            }
+
+            marker.on('click', markerOnClickMaRef1);
+
+            function markerOnClickMaRef1(e) {
+                map_osm.panTo(e.target.getLatLng());
+                notifyMarkerListener('MaRef1');
+            }
+
+            marker.addTo(layer);
+        
+
+        map_osm.addLayer(layer);
+
+        // Circle layer
+        
+
+        var layer = false?new L.MarkerClusterGroup({ disableClusteringAtZoom: 19, maxClusterRadius: 80}):new L.LayerGroup();
+
+        if(false)
+            layers.addOverlay(layer,"");
+
+        //Circles
+        
+
+        if(true)
+            map_osm.addLayer(layer);
+
+        if(false)
+            layers.addTo(map_osm);
+
+        map_osm.on('zoomend', mapZoomed);
+
+        function mapZoomed(e) {
+            var popupContent = document.querySelector('.leaflet-popup-content');
+            if (popupContent != null)
+                adjustLeafletPopupContent(popupContent, 250);
+        }
+
+    </script><div id="listForm:tabs:mapInfoWindow:pg-hiddenContentHolder" class="invisible"><div id="listForm:tabs:mapInfoWindow:wrapper" class="ui-outputpanel ui-widget"><div id="listForm:tabs:mapInfoWindow:j_idt80" class="ui-outputpanel ui-widget">An diesem Ort wurden mehrere Suchergebnisse gefunden:<div id="listForm:tabs:mapInfoWindow:dl" class="ui-datalist ui-widget"><div id="listForm:tabs:mapInfoWindow:dl_content" class="ui-datalist-content ui-widget-content"><div class="ui-datalist-empty-message">No records found.</div></div></div><script id="listForm:tabs:mapInfoWindow:dl_s" type="text/javascript">$(function(){PrimeFaces.cw("DataList","widget_listForm_tabs_mapInfoWindow_dl",{id:"listForm:tabs:mapInfoWindow:dl"});});</script></div></div></div></div><div id="listForm:tabs:t-list" class="ui-tabs-panel ui-widget-content ui-corner-bottom ui-helper-hidden" role="tabpanel" aria-hidden="true"><div id="listForm:tabs:table" class="ui-datatable ui-widget top-level"><div class="ui-datatable-tablewrapper"><table role="grid"><thead id="listForm:tabs:table_head"><tr role="row"><th id="listForm:tabs:table:j_idt106" class="ui-state-default column detail" role="columnheader"><span class="ui-column-title">Details</span></th><th id="listForm:tabs:table:list-column-name" class="ui-state-default ui-sortable-column column name" role="columnheader"><span class="ui-column-title">Name</span><span class="ui-sortable-column-icon ui-icon ui-icon-carat-2-n-s"></span></th><th id="listForm:tabs:table:list-column-postal" class="ui-state-default ui-sortable-column column postal" role="columnheader"><span class="ui-column-title">PLZ</span><span class="ui-sortable-column-icon ui-icon ui-icon-carat-2-n-s"></span></th><th id="listForm:tabs:table:list-column-location" class="ui-state-default ui-sortable-column column location" role="columnheader"><span class="ui-column-title">Ort</span><span class="ui-sortable-column-icon ui-icon ui-icon-carat-2-n-s"></span></th><th id="listForm:tabs:table:list-column-specialism" class="ui-state-default ui-sortable-column column specialism" role="columnheader"><span class="ui-column-title">Fachgebiet</span><span class="ui-sortable-column-icon ui-icon ui-icon-carat-2-n-s"></span></th></tr></thead><tbody id="listForm:tabs:table_data" class="ui-datatable-data ui-widget-content"><tr data-ri="0" class="ui-widget-content ui-datatable-even table-row" role="row"><td role="gridcell" class="column detail"><table id="listForm:tabs:table:0:j_idt107" class="ui-panelgrid ui-widget" role="grid"><tbody><tr class="ui-widget-content" role="row"><td role="gridcell" class="ui-panelgrid-cell"><div id="listForm:tabs:table:0:selectDetail" class="ui-chkbox ui-widget"><div class="ui-helper-hidden-accessible"><input id="listForm:tabs:table:0:selectDetail_input" name="listForm:tabs:table:0:selectDetail_input" type="checkbox" autocomplete="off" aria-checked="false" onchange="PrimeFaces.ab({s:&quot;listForm:tabs:table:0:selectDetail&quot;,e:&quot;valueChange&quot;,p:&quot;listForm:tabs:table:0:selectDetail&quot;,u:&quot;listForm:tabs:table&quot;});" /></div><div class="ui-chkbox-box ui-widget ui-corner-all ui-state-default"><span class="ui-chkbox-icon ui-icon ui-icon-blank ui-c"></span></div></div><script id="listForm:tabs:table:0:selectDetail_s" type="text/javascript">PrimeFaces.cw("SelectBooleanCheckbox","widget_listForm_tabs_table_0_selectDetail",{id:"listForm:tabs:table:0:selectDetail"});</script></td><td role="gridcell" class="ui-panelgrid-cell"><button id="listForm:tabs:table:0:showDetail" name="listForm:tabs:table:0:showDetail" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" onclick="" type="submit"><span class="ui-button-icon-left ui-icon ui-c ui-icon-search"></span><span class="ui-button-text ui-c">ui-button</span></button><script id="listForm:tabs:table:0:showDetail_s" type="text/javascript">PrimeFaces.cw("CommandButton","widget_listForm_tabs_table_0_showDetail",{id:"listForm:tabs:table:0:showDetail"});</script></td></tr></tbody></table><div id="listForm:tabs:table:0:j_idt108" class="ui-tooltip ui-widget ui-widget-content ui-shadow ui-corner-all">Eintrag für Druck der Detailansicht(en) auswählen</div><script id="listForm:tabs:table:0:j_idt108_s" type="text/javascript">$(function(){PrimeFaces.cw("Tooltip","widget_listForm_tabs_table_0_j_idt108",{id:"listForm:tabs:table:0:j_idt108",showEffect:"fade",hideEffect:"fade",target:"listForm:tabs:table:0:selectDetail"});});</script><div id="listForm:tabs:table:0:j_idt109" class="ui-tooltip ui-widget ui-widget-content ui-shadow ui-corner-all">Detailansicht anzeigen</div><script id="listForm:tabs:table:0:j_idt109_s" type="text/javascript">$(function(){PrimeFaces.cw("Tooltip","widget_listForm_tabs_table_0_j_idt109",{id:"listForm:tabs:table:0:j_idt109",showEffect:"fade",hideEffect:"fade",target:"listForm:tabs:table:0:showDetail"});});</script></td><td role="gridcell" class="column name"><table>
+<tbody>
+<tr>
+<td></td>
+</tr>
+<tr>
+<td><span class="bold">Garber, Leonid</span></td>
+</tr>
+</tbody>
+</table>
+</td><td role="gridcell" class="column postal"><table>
+<tbody>
+<tr>
+<td><img id="listForm:tabs:table:0:j_idt116" alt="" src="/arztsuche/javax.faces.resource/spacer/dot_clear.gif.jsf?ln=primefaces&amp;v=5.3" /></td>
+</tr>
+<tr>
+<td><span class="bold">01623</span></td>
+</tr>
+</tbody>
+</table>
+</td><td role="gridcell" class="column location"><table>
+<tbody>
+<tr>
+<td>Am Markt 11</td>
+</tr>
+<tr>
+<td><span class="bold">Lommatzsch</span></td>
+</tr>
+<tr>
+<td><img id="listForm:tabs:table:0:j_idt121" alt="" src="/arztsuche/javax.faces.resource/spacer/dot_clear.gif.jsf?ln=primefaces&amp;v=5.3" /></td>
+</tr>
+<tr>
+<td>Telefon: 035241 52250</td>
+</tr>
+</tbody>
+</table>
+</td><td role="gridcell" class="column specialism"><table>
+<tbody>
+<tr>
+<td><span class="bold">FA f. Allgemeinmedizin</span></td>
+</tr>
+</tbody>
+</table>
+</td></tr><tr data-ri="1" class="ui-widget-content ui-datatable-odd table-row" role="row"><td role="gridcell" class="column detail"><table id="listForm:tabs:table:1:j_idt107" class="ui-panelgrid ui-widget" role="grid"><tbody><tr class="ui-widget-content" role="row"><td role="gridcell" class="ui-panelgrid-cell"><div id="listForm:tabs:table:1:selectDetail" class="ui-chkbox ui-widget"><div class="ui-helper-hidden-accessible"><input id="listForm:tabs:table:1:selectDetail_input" name="listForm:tabs:table:1:selectDetail_input" type="checkbox" autocomplete="off" aria-checked="false" onchange="PrimeFaces.ab({s:&quot;listForm:tabs:table:1:selectDetail&quot;,e:&quot;valueChange&quot;,p:&quot;listForm:tabs:table:1:selectDetail&quot;,u:&quot;listForm:tabs:table&quot;});" /></div><div class="ui-chkbox-box ui-widget ui-corner-all ui-state-default"><span class="ui-chkbox-icon ui-icon ui-icon-blank ui-c"></span></div></div><script id="listForm:tabs:table:1:selectDetail_s" type="text/javascript">PrimeFaces.cw("SelectBooleanCheckbox","widget_listForm_tabs_table_1_selectDetail",{id:"listForm:tabs:table:1:selectDetail"});</script></td><td role="gridcell" class="ui-panelgrid-cell"><button id="listForm:tabs:table:1:showDetail" name="listForm:tabs:table:1:showDetail" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" onclick="" type="submit"><span class="ui-button-icon-left ui-icon ui-c ui-icon-search"></span><span class="ui-button-text ui-c">ui-button</span></button><script id="listForm:tabs:table:1:showDetail_s" type="text/javascript">PrimeFaces.cw("CommandButton","widget_listForm_tabs_table_1_showDetail",{id:"listForm:tabs:table:1:showDetail"});</script></td></tr></tbody></table><div id="listForm:tabs:table:1:j_idt108" class="ui-tooltip ui-widget ui-widget-content ui-shadow ui-corner-all">Eintrag für Druck der Detailansicht(en) auswählen</div><script id="listForm:tabs:table:1:j_idt108_s" type="text/javascript">$(function(){PrimeFaces.cw("Tooltip","widget_listForm_tabs_table_1_j_idt108",{id:"listForm:tabs:table:1:j_idt108",showEffect:"fade",hideEffect:"fade",target:"listForm:tabs:table:1:selectDetail"});});</script><div id="listForm:tabs:table:1:j_idt109" class="ui-tooltip ui-widget ui-widget-content ui-shadow ui-corner-all">Detailansicht anzeigen</div><script id="listForm:tabs:table:1:j_idt109_s" type="text/javascript">$(function(){PrimeFaces.cw("Tooltip","widget_listForm_tabs_table_1_j_idt109",{id:"listForm:tabs:table:1:j_idt109",showEffect:"fade",hideEffect:"fade",target:"listForm:tabs:table:1:showDetail"});});</script></td><td role="gridcell" class="column name"><table>
+<tbody>
+<tr>
+<td>Dr. med.</td>
+</tr>
+<tr>
+<td><span class="bold">Götzelt, Knut</span></td>
+</tr>
+</tbody>
+</table>
+</td><td role="gridcell" class="column postal"><table>
+<tbody>
+<tr>
+<td><img id="listForm:tabs:table:1:j_idt116" alt="" src="/arztsuche/javax.faces.resource/spacer/dot_clear.gif.jsf?ln=primefaces&amp;v=5.3" /></td>
+</tr>
+<tr>
+<td><span class="bold">01623</span></td>
+</tr>
+</tbody>
+</table>
+</td><td role="gridcell" class="column location"><table>
+<tbody>
+<tr>
+<td>Am Markt 12</td>
+</tr>
+<tr>
+<td><span class="bold">Lommatzsch</span></td>
+</tr>
+<tr>
+<td><img id="listForm:tabs:table:1:j_idt121" alt="" src="/arztsuche/javax.faces.resource/spacer/dot_clear.gif.jsf?ln=primefaces&amp;v=5.3" /></td>
+</tr>
+<tr>
+<td>Telefon: 035241 829444</td>
+</tr>
+<tr>
+<td>Fax: 035241 829445</td>
+</tr>
+</tbody>
+</table>
+</td><td role="gridcell" class="column specialism"><table>
+<tbody>
+<tr>
+<td><span class="bold">FA f. Kinder- und Jugendmedizin</span></td>
+</tr>
+</tbody>
+</table>
+</td></tr><tr data-ri="2" class="ui-widget-content ui-datatable-even table-row" role="row"><td role="gridcell" class="column detail"><table id="listForm:tabs:table:2:j_idt107" class="ui-panelgrid ui-widget" role="grid"><tbody><tr class="ui-widget-content" role="row"><td role="gridcell" class="ui-panelgrid-cell"><div id="listForm:tabs:table:2:selectDetail" class="ui-chkbox ui-widget"><div class="ui-helper-hidden-accessible"><input id="listForm:tabs:table:2:selectDetail_input" name="listForm:tabs:table:2:selectDetail_input" type="checkbox" autocomplete="off" aria-checked="false" onchange="PrimeFaces.ab({s:&quot;listForm:tabs:table:2:selectDetail&quot;,e:&quot;valueChange&quot;,p:&quot;listForm:tabs:table:2:selectDetail&quot;,u:&quot;listForm:tabs:table&quot;});" /></div><div class="ui-chkbox-box ui-widget ui-corner-all ui-state-default"><span class="ui-chkbox-icon ui-icon ui-icon-blank ui-c"></span></div></div><script id="listForm:tabs:table:2:selectDetail_s" type="text/javascript">PrimeFaces.cw("SelectBooleanCheckbox","widget_listForm_tabs_table_2_selectDetail",{id:"listForm:tabs:table:2:selectDetail"});</script></td><td role="gridcell" class="ui-panelgrid-cell"><button id="listForm:tabs:table:2:showDetail" name="listForm:tabs:table:2:showDetail" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" onclick="" type="submit"><span class="ui-button-icon-left ui-icon ui-c ui-icon-search"></span><span class="ui-button-text ui-c">ui-button</span></button><script id="listForm:tabs:table:2:showDetail_s" type="text/javascript">PrimeFaces.cw("CommandButton","widget_listForm_tabs_table_2_showDetail",{id:"listForm:tabs:table:2:showDetail"});</script></td></tr></tbody></table><div id="listForm:tabs:table:2:j_idt108" class="ui-tooltip ui-widget ui-widget-content ui-shadow ui-corner-all">Eintrag für Druck der Detailansicht(en) auswählen</div><script id="listForm:tabs:table:2:j_idt108_s" type="text/javascript">$(function(){PrimeFaces.cw("Tooltip","widget_listForm_tabs_table_2_j_idt108",{id:"listForm:tabs:table:2:j_idt108",showEffect:"fade",hideEffect:"fade",target:"listForm:tabs:table:2:selectDetail"});});</script><div id="listForm:tabs:table:2:j_idt109" class="ui-tooltip ui-widget ui-widget-content ui-shadow ui-corner-all">Detailansicht anzeigen</div><script id="listForm:tabs:table:2:j_idt109_s" type="text/javascript">$(function(){PrimeFaces.cw("Tooltip","widget_listForm_tabs_table_2_j_idt109",{id:"listForm:tabs:table:2:j_idt109",showEffect:"fade",hideEffect:"fade",target:"listForm:tabs:table:2:showDetail"});});</script></td><td role="gridcell" class="column name"><table>
+<tbody>
+<tr>
+<td>Dr. med.</td>
+</tr>
+<tr>
+<td><span class="bold">Gruschwitz, Rita</span></td>
+</tr>
+</tbody>
+</table>
+</td><td role="gridcell" class="column postal"><table>
+<tbody>
+<tr>
+<td><img id="listForm:tabs:table:2:j_idt116" alt="" src="/arztsuche/javax.faces.resource/spacer/dot_clear.gif.jsf?ln=primefaces&amp;v=5.3" /></td>
+</tr>
+<tr>
+<td><span class="bold">01623</span></td>
+</tr>
+</tbody>
+</table>
+</td><td role="gridcell" class="column location"><table>
+<tbody>
+<tr>
+<td>Am Markt 11</td>
+</tr>
+<tr>
+<td><span class="bold">Lommatzsch</span></td>
+</tr>
+<tr>
+<td><img id="listForm:tabs:table:2:j_idt121" alt="" src="/arztsuche/javax.faces.resource/spacer/dot_clear.gif.jsf?ln=primefaces&amp;v=5.3" /></td>
+</tr>
+<tr>
+<td>Telefon: 035241 52250</td>
+</tr>
+</tbody>
+</table>
+</td><td role="gridcell" class="column specialism"><table>
+<tbody>
+<tr>
+<td><span class="bold">FÄ f. Allgemeinmedizin</span></td>
+</tr>
+</tbody>
+</table>
+</td></tr><tr data-ri="3" class="ui-widget-content ui-datatable-odd table-row" role="row"><td role="gridcell" class="column detail"><table id="listForm:tabs:table:3:j_idt107" class="ui-panelgrid ui-widget" role="grid"><tbody><tr class="ui-widget-content" role="row"><td role="gridcell" class="ui-panelgrid-cell"><div id="listForm:tabs:table:3:selectDetail" class="ui-chkbox ui-widget"><div class="ui-helper-hidden-accessible"><input id="listForm:tabs:table:3:selectDetail_input" name="listForm:tabs:table:3:selectDetail_input" type="checkbox" autocomplete="off" aria-checked="false" onchange="PrimeFaces.ab({s:&quot;listForm:tabs:table:3:selectDetail&quot;,e:&quot;valueChange&quot;,p:&quot;listForm:tabs:table:3:selectDetail&quot;,u:&quot;listForm:tabs:table&quot;});" /></div><div class="ui-chkbox-box ui-widget ui-corner-all ui-state-default"><span class="ui-chkbox-icon ui-icon ui-icon-blank ui-c"></span></div></div><script id="listForm:tabs:table:3:selectDetail_s" type="text/javascript">PrimeFaces.cw("SelectBooleanCheckbox","widget_listForm_tabs_table_3_selectDetail",{id:"listForm:tabs:table:3:selectDetail"});</script></td><td role="gridcell" class="ui-panelgrid-cell"><button id="listForm:tabs:table:3:showDetail" name="listForm:tabs:table:3:showDetail" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" onclick="" type="submit"><span class="ui-button-icon-left ui-icon ui-c ui-icon-search"></span><span class="ui-button-text ui-c">ui-button</span></button><script id="listForm:tabs:table:3:showDetail_s" type="text/javascript">PrimeFaces.cw("CommandButton","widget_listForm_tabs_table_3_showDetail",{id:"listForm:tabs:table:3:showDetail"});</script></td></tr></tbody></table><div id="listForm:tabs:table:3:j_idt108" class="ui-tooltip ui-widget ui-widget-content ui-shadow ui-corner-all">Eintrag für Druck der Detailansicht(en) auswählen</div><script id="listForm:tabs:table:3:j_idt108_s" type="text/javascript">$(function(){PrimeFaces.cw("Tooltip","widget_listForm_tabs_table_3_j_idt108",{id:"listForm:tabs:table:3:j_idt108",showEffect:"fade",hideEffect:"fade",target:"listForm:tabs:table:3:selectDetail"});});</script><div id="listForm:tabs:table:3:j_idt109" class="ui-tooltip ui-widget ui-widget-content ui-shadow ui-corner-all">Detailansicht anzeigen</div><script id="listForm:tabs:table:3:j_idt109_s" type="text/javascript">$(function(){PrimeFaces.cw("Tooltip","widget_listForm_tabs_table_3_j_idt109",{id:"listForm:tabs:table:3:j_idt109",showEffect:"fade",hideEffect:"fade",target:"listForm:tabs:table:3:showDetail"});});</script></td><td role="gridcell" class="column name"><table>
+<tbody>
+<tr>
+<td></td>
+</tr>
+<tr>
+<td><span class="bold">Naroska-Prietzel, Birgit</span></td>
+</tr>
+</tbody>
+</table>
+</td><td role="gridcell" class="column postal"><table>
+<tbody>
+<tr>
+<td><img id="listForm:tabs:table:3:j_idt116" alt="" src="/arztsuche/javax.faces.resource/spacer/dot_clear.gif.jsf?ln=primefaces&amp;v=5.3" /></td>
+</tr>
+<tr>
+<td><span class="bold">01623</span></td>
+</tr>
+</tbody>
+</table>
+</td><td role="gridcell" class="column location"><table>
+<tbody>
+<tr>
+<td>Am Markt 12</td>
+</tr>
+<tr>
+<td><span class="bold">Lommatzsch</span></td>
+</tr>
+<tr>
+<td><img id="listForm:tabs:table:3:j_idt121" alt="" src="/arztsuche/javax.faces.resource/spacer/dot_clear.gif.jsf?ln=primefaces&amp;v=5.3" /></td>
+</tr>
+<tr>
+<td>Telefon: 035241 829315</td>
+</tr>
+<tr>
+<td>Fax: 035241 826088</td>
+</tr>
+</tbody>
+</table>
+</td><td role="gridcell" class="column specialism"><table>
+<tbody>
+<tr>
+<td><span class="bold">FÄ f. Frauenheilkunde u. Geburtsh.</span></td>
+</tr>
+</tbody>
+</table>
+</td></tr><tr data-ri="4" class="ui-widget-content ui-datatable-even table-row" role="row"><td role="gridcell" class="column detail"><table id="listForm:tabs:table:4:j_idt107" class="ui-panelgrid ui-widget" role="grid"><tbody><tr class="ui-widget-content" role="row"><td role="gridcell" class="ui-panelgrid-cell"><div id="listForm:tabs:table:4:selectDetail" class="ui-chkbox ui-widget"><div class="ui-helper-hidden-accessible"><input id="listForm:tabs:table:4:selectDetail_input" name="listForm:tabs:table:4:selectDetail_input" type="checkbox" autocomplete="off" aria-checked="false" onchange="PrimeFaces.ab({s:&quot;listForm:tabs:table:4:selectDetail&quot;,e:&quot;valueChange&quot;,p:&quot;listForm:tabs:table:4:selectDetail&quot;,u:&quot;listForm:tabs:table&quot;});" /></div><div class="ui-chkbox-box ui-widget ui-corner-all ui-state-default"><span class="ui-chkbox-icon ui-icon ui-icon-blank ui-c"></span></div></div><script id="listForm:tabs:table:4:selectDetail_s" type="text/javascript">PrimeFaces.cw("SelectBooleanCheckbox","widget_listForm_tabs_table_4_selectDetail",{id:"listForm:tabs:table:4:selectDetail"});</script></td><td role="gridcell" class="ui-panelgrid-cell"><button id="listForm:tabs:table:4:showDetail" name="listForm:tabs:table:4:showDetail" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" onclick="" type="submit"><span class="ui-button-icon-left ui-icon ui-c ui-icon-search"></span><span class="ui-button-text ui-c">ui-button</span></button><script id="listForm:tabs:table:4:showDetail_s" type="text/javascript">PrimeFaces.cw("CommandButton","widget_listForm_tabs_table_4_showDetail",{id:"listForm:tabs:table:4:showDetail"});</script></td></tr></tbody></table><div id="listForm:tabs:table:4:j_idt108" class="ui-tooltip ui-widget ui-widget-content ui-shadow ui-corner-all">Eintrag für Druck der Detailansicht(en) auswählen</div><script id="listForm:tabs:table:4:j_idt108_s" type="text/javascript">$(function(){PrimeFaces.cw("Tooltip","widget_listForm_tabs_table_4_j_idt108",{id:"listForm:tabs:table:4:j_idt108",showEffect:"fade",hideEffect:"fade",target:"listForm:tabs:table:4:selectDetail"});});</script><div id="listForm:tabs:table:4:j_idt109" class="ui-tooltip ui-widget ui-widget-content ui-shadow ui-corner-all">Detailansicht anzeigen</div><script id="listForm:tabs:table:4:j_idt109_s" type="text/javascript">$(function(){PrimeFaces.cw("Tooltip","widget_listForm_tabs_table_4_j_idt109",{id:"listForm:tabs:table:4:j_idt109",showEffect:"fade",hideEffect:"fade",target:"listForm:tabs:table:4:showDetail"});});</script></td><td role="gridcell" class="column name"><table>
+<tbody>
+<tr>
+<td></td>
+</tr>
+<tr>
+<td><span class="bold">Weber, Stanislaus</span></td>
+</tr>
+</tbody>
+</table>
+</td><td role="gridcell" class="column postal"><table>
+<tbody>
+<tr>
+<td><img id="listForm:tabs:table:4:j_idt116" alt="" src="/arztsuche/javax.faces.resource/spacer/dot_clear.gif.jsf?ln=primefaces&amp;v=5.3" /></td>
+</tr>
+<tr>
+<td><span class="bold">01623</span></td>
+</tr>
+</tbody>
+</table>
+</td><td role="gridcell" class="column location"><table>
+<tbody>
+<tr>
+<td>Am Markt 11</td>
+</tr>
+<tr>
+<td><span class="bold">Lommatzsch</span></td>
+</tr>
+<tr>
+<td><img id="listForm:tabs:table:4:j_idt121" alt="" src="/arztsuche/javax.faces.resource/spacer/dot_clear.gif.jsf?ln=primefaces&amp;v=5.3" /></td>
+</tr>
+<tr>
+<td>Telefon: 035241 52250</td>
+</tr>
+</tbody>
+</table>
+</td><td role="gridcell" class="column specialism"><table>
+<tbody>
+<tr>
+<td><span class="bold">FA f. Innere Medizin</span></td>
+</tr>
+</tbody>
+</table>
+</td></tr></tbody></table></div><div class="ui-datatable-footer ui-widget-header ui-corner-bottom"><button id="listForm:tabs:table:printSelection" name="listForm:tabs:table:printSelection" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only ui-state-disabled" onclick="" type="submit" disabled="disabled"><span class="ui-button-text ui-c">Auswahl drucken</span></button><script id="listForm:tabs:table:printSelection_s" type="text/javascript">PrimeFaces.cw("CommandButton","widget_listForm_tabs_table_printSelection",{id:"listForm:tabs:table:printSelection"});</script><img id="listForm:tabs:table:j_idt137" alt="" src="/arztsuche/javax.faces.resource/spacer/dot_clear.gif.jsf?ln=primefaces&amp;v=5.3" class="spacer-table-footer-button" /><button id="listForm:tabs:table:printList" name="listForm:tabs:table:printList" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" onclick="" type="submit"><span class="ui-button-text ui-c">Liste drucken</span></button><script id="listForm:tabs:table:printList_s" type="text/javascript">PrimeFaces.cw("CommandButton","widget_listForm_tabs_table_printList",{id:"listForm:tabs:table:printList"});</script></div></div><script id="listForm:tabs:table_s" type="text/javascript">$(function(){PrimeFaces.cw("DataTable","widget_listForm_tabs_table",{id:"listForm:tabs:table",paginator:{id:['listForm:tabs:table_paginator_bottom'],rows:7,rowCount:5,page:0,currentPageTemplate:'({currentPage} of {totalPages})',pageLinks:15,alwaysVisible:false},behaviors:{sort:function(ext,event) {PrimeFaces.ab({s:"listForm:tabs:table",e:"sort",p:"listForm:tabs:table"},ext);}}});});</script></div></div><input type="hidden" id="listForm:tabs_activeIndex" name="listForm:tabs_activeIndex" value="0" autocomplete="off" /></div><script id="listForm:tabs_s" type="text/javascript">PrimeFaces.cw("TabView","widget_listForm_tabs",{id:"listForm:tabs",onTabChange:function(index){setTimeout(function(){map_osm.invalidateSize()});},effectDuration:"normal",scrollable:false});</script><input type="hidden" name="javax.faces.ViewState" id="j_id1:javax.faces.ViewState:0" value="-6493593526396765689:-2892878806166234728" autocomplete="off" />
+</form>
+<form id="listFormMaxCount" name="listFormMaxCount" method="post" action="/arztsuche/pages/list.jsf" enctype="application/x-www-form-urlencoded">
+<input type="hidden" name="listFormMaxCount" value="listFormMaxCount" />
+
+        <script type="text/javascript">
+                    function showMaxResultCountConfirmation() {
+                        PF('maxResultCountConfirmation').show();
+                    };
+                    function hideMaxResultCountConfirmation() {
+                        PF('maxResultCountConfirmation').hide();
+                    };
+                    function showResearchBlockUI() {
+                        PF('researchBlockUI').show();
+                    };
+                </script>
+
+        <!-- panel for changing the maxResultCount --><div id="listFormMaxCount:j_idt144" class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-shadow ui-hidden-container"><div class="ui-dialog-titlebar ui-widget-header ui-helper-clearfix ui-corner-top"><span id="listFormMaxCount:j_idt144_title" class="ui-dialog-title">Maximale Ergebnismenge ändern</span></div><div class="ui-dialog-content ui-widget-content"><table cellspacing="5">
+<tbody>
+<tr>
+<td><table>
+<tbody>
+<tr>
+<td><span class="bold">Achtung!</span></td>
+</tr>
+<tr>
+<td><img id="listFormMaxCount:j_idt148" alt="" src="/arztsuche/javax.faces.resource/spacer/dot_clear.gif.jsf?ln=primefaces&amp;v=5.3" /></td>
+</tr>
+<tr>
+<td>Sie sind dabei, die maximale Ergebnismenge zu ändern. Sind Sie sich sicher? Dadurch können die folgenden Auswirkungen eintreten:</td>
+</tr>
+<tr>
+<td>
+                        
+                        <ul>
+                            <li>Die Datenbank kann sehr hoch belastet werden. Dies kann u.U. auch negative Auswirkungen auf andere Nutzer haben.</li>
+                            <li>Die Antwortzeit kann sich u.U. enorm erhöhen.</li>
+                            <li>Ihr Browser kann mit dem Suchergebnis ggf. überlastet werden.</li>
+                        </ul></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td><span class="bold">Soll Ihre ursprüngliche Suche mit der geänderten maximalen Ergebnismenge durchgeführt und anschließend das Ergebnis angezeigt werden?</span></td>
+</tr>
+<tr>
+<td><img id="listFormMaxCount:j_idt160" alt="" src="/arztsuche/javax.faces.resource/spacer/dot_clear.gif.jsf?ln=primefaces&amp;v=5.3" /></td>
+</tr>
+<tr>
+<td><table cellspacing="0" width="100%">
+<tbody>
+<tr>
+<td class="popup-button-yes"><button id="listFormMaxCount:cb-confirmMaxResultCountChange" name="listFormMaxCount:cb-confirmMaxResultCountChange" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" onclick="hideMaxResultCountConfirmation(); showResearchBlockUI();;" type="submit"><span class="ui-button-text ui-c">Ja, Suche erneut durchführen</span></button><script id="listFormMaxCount:cb-confirmMaxResultCountChange_s" type="text/javascript">PrimeFaces.cw("CommandButton","widget_listFormMaxCount_cb_confirmMaxResultCountChange",{id:"listFormMaxCount:cb-confirmMaxResultCountChange"});</script></td>
+<td class="popup-button-no"><button id="listFormMaxCount:cb-rejectMaxResultCountChange" name="listFormMaxCount:cb-rejectMaxResultCountChange" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" onclick="hideMaxResultCountConfirmation();" type="button"><span class="ui-button-text ui-c">Nein, Änderungen nicht anwenden</span></button><script id="listFormMaxCount:cb-rejectMaxResultCountChange_s" type="text/javascript">PrimeFaces.cw("CommandButton","widget_listFormMaxCount_cb_rejectMaxResultCountChange",{id:"listFormMaxCount:cb-rejectMaxResultCountChange"});</script></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div></div><script id="listFormMaxCount:j_idt144_s" type="text/javascript">$(function(){PrimeFaces.cw("Dialog","maxResultCountConfirmation",{id:"listFormMaxCount:j_idt144",resizable:false,modal:true,width:"500"});});</script><div id="listFormMaxCount:j_idt162" class="ui-blockui-content ui-widget ui-widget-content ui-corner-all ui-helper-hidden ui-shadow"><img src="/arztsuche/javax.faces.resource/waiting.gif.jsf?ln=icons" /></div><script id="listFormMaxCount:j_idt162_s" type="text/javascript">$(function(){PrimeFaces.cw("BlockUI","researchBlockUI",{id:"listFormMaxCount:j_idt162",block:"listForm"});});</script><input type="hidden" name="javax.faces.ViewState" id="j_id1:javax.faces.ViewState:1" value="-6493593526396765689:-2892878806166234728" autocomplete="off" />
+</form>
+                    </div>
+                    <div class="asu-template"><div class="footer grey fillout"><a href="http://www.kvs-sachsen.de/impressum/">Impressum &gt;&gt;</a></div>
+                    </div></span></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="border">
+        <div></div></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>
